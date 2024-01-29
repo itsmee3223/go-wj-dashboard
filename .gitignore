@@ -1,0 +1,29 @@
+# File dan direktori yang dihasilkan saat kompilasi
+/tmp/
+main
+
+# File konfigurasi lingkungan
+.env
+
+# File log
+*.log
+
+# File binary yang dihasilkan Go
+/bin/
+/pkg/
+
+# File terkait dependensi
+/vendor/
+
+# File editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# File sistem operasi
+.DS_Store
+Thumbs.db
+
+# File lain yang sering tidak perlu dalam repositori
+*.out

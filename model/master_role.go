@@ -9,9 +9,9 @@ import (
 )
 
 type MasterRole struct {
-	ID        uuid.UUID      `json:"id" gorm:"type:uuid;primary_key;"`
-	Name      string         `json:"name" gorm:"type:varchar(255)" validate:"required"`
-	Access    datatypes.JSON `json:"access" gorm:"type:json" validate:"required"`
+	ID        uuid.UUID      `json:"id" gorm:"type:char(36);primary_key"`
+	Name      string         `json:"name" gorm:"type:varchar(255);not null" validate:"required"`
+	Access    datatypes.JSON `json:"access" gorm:"type:json;not null" validate:"required"`
 	CreatedAt time.Time      `json:"created_at"`
 	UpdatedAt time.Time      `json:"updated_at"`
 }

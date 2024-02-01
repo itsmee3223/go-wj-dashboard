@@ -8,16 +8,16 @@ import (
 )
 
 type Admin struct {
-	ID        uuid.UUID      `json:"id" gorm:"type:uuid;primary_key;"`
-	Name      string         `gorm:"type:varchar(255)"`
-	Username  string         `gorm:"type:varchar(255);unique"`
-	Email     string         `gorm:"type:varchar(255);unique"`
-	Password  string         `gorm:"type:varchar(255)"`
-	RoleID    uuid.UUID      `gorm:"type:uuid;index;"`
-	Role      MasterRole     `gorm:"foreignkey:RoleID"`
-	CreatedAt time.Time      `gorm:"type:datetime"`
-	UpdatedAt time.Time      `gorm:"type:datetime"`
-	DeletedAt gorm.DeletedAt `gorm:"type:datetime;index"`
+	ID        uuid.UUID      `json:"id" gorm:"type:char(36);primary_key"`
+	Name      string         `json:"name" gorm:"type:varchar(255)"`
+	Username  string         `json:"username" gorm:"type:varchar(255);unique"`
+	Email     string         `json:"email" gorm:"type:varchar(255);unique"`
+	Password  string         `json:"password" gorm:"type:varchar(255)"`
+	RoleID    uuid.UUID      `json:"role_id" gorm:"type:char(36);index"`
+	Role      MasterRole     `json:"role" gorm:"foreignkey:RoleID"`
+	CreatedAt time.Time      `json:"created_at" gorm:"type:datetime"`
+	UpdatedAt time.Time      `json:"updated_at" gorm:"type:datetime"`
+	DeletedAt gorm.DeletedAt `json:"deleted_at" gorm:"type:datetime;index"`
 }
 
 type AdminResponse struct {

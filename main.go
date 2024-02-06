@@ -17,7 +17,12 @@ func main() {
 	masterRoleUsecase := usecase.NewMasterRoleUsecase(masterRoleRepository)
 	masterRoleController := controller.NewMasterRoleController(masterRoleUsecase, masterRoleValidator)
 
-	e := router.NewRouter(masterRoleController)
+	adminValidator := validators.NewAdminValidator()
+	adminRepository := repository.NewAdminRepository(db)
+	adminUsecase := usecase.NewAdminUsecase(adminRepository)
+	adminController := controller.NewAdminController(adminUsecase, adminValidator)
+
+	e := router.NewRouter(masterRoleController, adminController)
 
 	e.Logger.Fatal(e.Start(":8080"))
 }

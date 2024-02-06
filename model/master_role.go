@@ -29,12 +29,11 @@ func (masterRole *MasterRole) BeforeCreate(tx *gorm.DB) (err error) {
 	return
 }
 
+func (m MasterRole) ConvertToResponse() MasterRoleResponse {
+	response := MasterRoleResponse(m)
+	return response
+}
+
 func (m MasterRole) ToResponse() MasterRoleResponse {
-	return MasterRoleResponse{
-		ID:        m.ID,
-		Name:      m.Name,
-		Access:    m.Access,
-		CreatedAt: m.CreatedAt,
-		UpdatedAt: m.UpdatedAt,
-	}
+	return m.ConvertToResponse()
 }

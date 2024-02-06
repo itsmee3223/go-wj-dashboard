@@ -1,12 +1,9 @@
-# .air.toml
+# .air.toml Windows
 root = "."
 tmp_dir = "tmp"
 
 [build]
-  # Pastikan perintah ini berjalan di Windows dan Docker
   cmd = "go build -o ./tmp/main.exe ."
-  # Tambahkan ekstensi .exe untuk Windows
-  # Untuk Docker, ini akan tergantung pada base image yang digunakan
   bin = "./tmp/main.exe" 
 
 [log]

@@ -1,0 +1,273 @@
+{
+	"info": {
+		"_postman_id": "ecf5c90d-d064-44ed-a637-d8979cad3001",
+		"name": "WJ Dashboard",
+		"description": "Dokumentasi API untuk WJ Dashboard",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18696549"
+	},
+	"item": [
+		{
+			"name": "Master Roles",
+			"item": [
+				{
+					"name": "Get All Roles",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MDk0Njk3MjcsImlkZW50aWZpZXIiOiJyYW1hbmRhMTJAZ21haWwuY29tIn0.W0tyZLLKbsby6Hk1gFrv1438kWqU0bftIHNt3lgl9h4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/roles",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"roles"
+							]
+						},
+						"description": "Endpoint api ini digunakan untuk mendapatkan seluruh data role yang ada.\n\nContoh response\n\n``` json\n{\n    \"data\": [\n        {\n            \"id\": \"1faf8280-0810-4d13-81e0-9a6168f6a30b\",\n            \"name\": \"super admin\",\n            \"access\": {\n                \"level\": 1\n            },\n            \"created_at\": \"2024-02-07T05:36:25.104+07:00\",\n            \"updated_at\": \"2024-02-07T05:36:25.104+07:00\"\n        }\n    ],\n    \"status\": \"success\"\n}\n ```"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Role",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MDk0Njk3MjcsImlkZW50aWZpZXIiOiJyYW1hbmRhMTJAZ21haWwuY29tIn0.W0tyZLLKbsby6Hk1gFrv1438kWqU0bftIHNt3lgl9h4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"super admin\",\r\n    \"access\": {\r\n        \"level\": 1\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/roles",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"roles"
+							]
+						},
+						"description": "Endpoint ini digunakan untuk membuat role baru\n\nname: string | required\n\naccess: json | required\n\nContoh response\n\n``` json\n{\n    \"data\": {\n        \"id\": \"475aa1fe-8fd9-4070-a25b-9ba1fc899aa0\",\n        \"name\": \"super admin\",\n        \"access\": {\n            \"level\": 1\n        },\n        \"created_at\": \"2024-02-10T11:50:55.693+07:00\",\n        \"updated_at\": \"2024-02-10T11:50:55.693+07:00\"\n    },\n    \"status\": \"success\"\n}\n\n ```"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Role By ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MDk0Njk3MjcsImlkZW50aWZpZXIiOiJyYW1hbmRhMTJAZ21haWwuY29tIn0.W0tyZLLKbsby6Hk1gFrv1438kWqU0bftIHNt3lgl9h4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/roles/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"roles",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1faf8280-0810-4d13-81e0-9a6168f6a30b",
+									"description": "id dari role yang ingin dicari"
+								}
+							]
+						},
+						"description": "Endpoint ini digunakan untuk mendapatkan role berdasarkan path param id role yang dicari.\n\ncontoh response:\n\n``` json\n{\n    \"data\": {\n        \"id\": \"\",\n        \"name\": \"\",\n        \"access\": {\n            \"level\": 0\n        },\n        \"created_at\": \"\",\n        \"updated_at\": \"\"\n    },\n    \"status\": \"\"\n}\n\n ```"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Role",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MDk0Njk3MjcsImlkZW50aWZpZXIiOiJyYW1hbmRhMTJAZ21haWwuY29tIn0.W0tyZLLKbsby6Hk1gFrv1438kWqU0bftIHNt3lgl9h4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"admin update\",\r\n    \"access\": {\r\n        \"level\": 2\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/roles/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"roles",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1faf8280-0810-4d13-81e0-9a6168f6a30b",
+									"description": "id dari role yang ingin diupdate"
+								}
+							]
+						},
+						"description": "Endpoint ini digunakan untuk melakukan update nama dan accsess role\n\ncontoh response\n\n``` json\n{\n    \"data\": {\n        \"id\": \"1faf8280-0810-4d13-81e0-9a6168f6a30b\",\n        \"name\": \"admin update\",\n        \"access\": {\n            \"level\": 2\n        },\n        \"created_at\": \"0001-01-01T00:00:00Z\",\n        \"updated_at\": \"0001-01-01T00:00:00Z\"\n    },\n    \"status\": \"success\"\n}\n ```"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Role",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MDk0Njk3MjcsImlkZW50aWZpZXIiOiJyYW1hbmRhMTJAZ21haWwuY29tIn0.W0tyZLLKbsby6Hk1gFrv1438kWqU0bftIHNt3lgl9h4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/roles/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"roles",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "475aa1fe-8fd9-4070-a25b-9ba1fc899aa0",
+									"description": "id dari role yang ingin dihapus"
+								}
+							]
+						},
+						"description": "Endpoint ini digunakan untuk menghapus master role"
+					},
+					"response": []
+				}
+			],
+			"description": "Endpoint ini digunakan untuk melakukan opreasi CRUD pada master roles\n\n- Untuk mengakses enpoint ini diperlukan token login\n    \n- Token di dapatkan ketika melakukan login\n    \n- Kirimkan token pada header Authorization untuk mengakses endpoint\n    \n- Format token adalah \"Bearer token\""
+		},
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"name\",\r\n    \"username\": \"username\",\r\n    \"email\": \"email@gmail.com\",\r\n    \"password\": \"password\",\r\n    \"role_id\": \"uuid role\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"register"
+							]
+						},
+						"description": "Endpoint ini digunakan untuk register admin baru\n\ncontoh response\n\n``` json\n{\n    \"id\": \"8b0f4e41-5cd8-4bd6-9967-b90bbddaf2bd\",\n    \"name\": \"ramanda\",\n    \"username\": \"ramanda3222\",\n    \"email\": \"ramanda123@gmail.com\",\n    \"role_id\": \"1faf8280-0810-4d13-81e0-9a6168f6a30b\",\n    \"created_at\": \"0001-01-01T00:00:00Z\",\n    \"updated_at\": \"0001-01-01T00:00:00Z\"\n}\n ```"
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    // \"username\": \"username\",\r\n    \"email\": \"email@gmail.com\" ,\r\n    \"password\": \"password\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"login"
+							]
+						},
+						"description": "Endpoint ini digunakan untuk admin melakukan login, admin dapat login menggunakan email atau username mereka\n\ncontoh response\n\n``` json\n{\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTAxMzk2ODAsImlkZW50aWZpZXIiOiJyYW1hbmRhMTJAZ21haWwuY29tIn0.Ds79ch1RS3Km9BThaeuboaNQ8dFTumQhzb6BUokEvAQ\"\n}\n ```"
+					},
+					"response": []
+				}
+			],
+			"description": "endpoint untuk admin melakukan login atau mendaftarkan admin baru"
+		}
+	]
+}
